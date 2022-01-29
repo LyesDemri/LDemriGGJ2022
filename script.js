@@ -21,6 +21,8 @@ var upButton=0;
 var downButton=0;
 var leftButton=0;
 var rightButton=0;
+var canvasPressed=0;
+var touchPos;
 var map1;
 var map2;
 var state = "playing"
@@ -47,5 +49,25 @@ window.addEventListener('keyup', function (e)
  keyCode=-1;
  key='';
 });
+
+function getTouchPos(canvasDom, touchEvent)
+{
+ var rect = canvasDom.getBoundingClientRect();
+ return { x: touchEvent.touches[0].clientX - rect.left, 
+          y: touchEvent.touches[0].clientY - rect.top };
+}
+
+canvas.addEventListener("touchstart", function (e) 
+{
+ touchPos = getTouchPos(canvas, e); 
+ var touch = e.touches[0];
+ canvasPressed=1;
+}, false);
+
+canvas.addEventListener("touchend", function (e) 
+{
+ canvasPressed=0;
+ animCtr=0;
+}, false);
 
 setInterval(loop, 33);
