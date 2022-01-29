@@ -44,6 +44,16 @@ function draw()
 		ctx.moveTo(screenWidth/2,0);
 		ctx.lineTo(screenWidth/2,screenHeight);
 		ctx.stroke();
+
+  //draw arrows
+  //ctx.fillText(navigator.userAgentData.mobile,100,100)
+  if (navigator.userAgentData.mobile)
+  {
+    ctx.strokeRect(3*32,14*32,64,64)
+    ctx.strokeRect(5*32,12*32,64,64)
+    ctx.strokeRect(3*32,10*32,64,64)
+    ctx.strokeRect(1*32,12*32,64,64)
+  }
 	}
 	else if (state==="end screen")
 	{
