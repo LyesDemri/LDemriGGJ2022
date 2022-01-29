@@ -26,7 +26,7 @@ var touchPos;
 var map1;
 var map2;
 var state = "playing"
-var level = 1;
+var level = 5;
 var animCtr=0;
 loadMap()
 
