@@ -54,7 +54,7 @@ function update()
 	}
 	else if (state==="end screen")
 	{
-		if (keyCode==13)
+		if (keyCode==13 || canvasPressed == 1)
 		{
 			x=0;
 			y=screenHeight-32
