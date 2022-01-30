@@ -5,8 +5,8 @@ var gndTile = document.getElementById("gndTile");
 var goalTile = document.getElementById("goalTile");
 var goalTile2 = document.getElementById("goalTile2");
 var wallTile = document.getElementById("wallTile");
+var titleScreen = document.getElementById("titleScreen");
 var thanksScreen = document.getElementById("thanksScreen");
-var thanksScreen2 = document.getElementById("thanksScreen2");
 var screenSizeTiles=16;
 var tileWidth=32
 var screenWidth=tileWidth*screenSizeTiles*2
@@ -23,9 +23,10 @@ var leftButton=0;
 var rightButton=0;
 var canvasPressed=0;
 var touchPos;
+var enterKeyReleased;
 var map1;
 var map2;
-var state = "playing"
+var state = "title screen"
 var level = 1;
 var animCtr=0;
 loadMap()
