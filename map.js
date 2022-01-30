@@ -219,6 +219,8 @@ function loadMap()
 			  [1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 			  [1,1,1,0,1,0,1,0,1,0,1,1,1,0,1,0],
 			  [1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1]]
+   gndTile=document.getElementById("snowTile");
+   wallTile=document.getElementById("pineTile");
 	}
 
 	else

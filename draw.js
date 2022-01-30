@@ -12,19 +12,25 @@ function draw()
 			for (c=0;c<screenSizeTiles;c++)
 			{
 				if (map1[l][c]==1)
-					if (level >= 5)
+					if (level == 5)
 						ctx.drawImage(gndTile,Math.floor(((animCtr+l*16+c)%32)/4)*32,0,32,32,c*32,l*32,32,32);
 					else
 						ctx.drawImage(gndTile,0,0,32,32,c*32,l*32,32,32);
 				else
-					ctx.drawImage(wallTile,c*32,l*32);
+					if (level == 6)
+						ctx.drawImage(wallTile,Math.floor((animCtr%32)/16)*32,0,32,32,c*32,l*32,32,32);
+					else
+						ctx.drawImage(wallTile,c*32,l*32);
 				if (map2[l][c]==1)
-					if (level >= 5)
+					if (level == 5)
 						ctx.drawImage(gndTile,Math.floor(((animCtr+l*16+c)%32)/4)*32,0,32,32,c*32+screenWidth/2,l*32,32,32);
 					else
 						ctx.drawImage(gndTile,0,0,32,32,c*32+screenWidth/2,l*32,32,32);
 				else
-					ctx.drawImage(wallTile,c*32+screenWidth/2,l*32);
+					if (level == 6)
+						ctx.drawImage(wallTile,Math.floor((animCtr%32)/16)*32,0,32,32,c*32+screenWidth/2,l*32,32,32);
+					else
+						ctx.drawImage(wallTile,c*32+screenWidth/2,l*32);
 			}
 		}
 		
