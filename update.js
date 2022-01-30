@@ -2,9 +2,20 @@ function update()
 {	
 	//document.title = ""+x+","+y
 
- handleInput()
-	if (state==="playing")
+	handleInput()
+	if (state==="title screen")
 	{
+		if (keyCode==-1)
+			enterKeyReleased=true
+		if ((keyCode==13 && enterKeyReleased==true) || canvasPressed==1)
+		{
+			state="playing"
+			enterKeyReleased=false
+		}
+	}
+	else if (state==="playing")
+	{
+
 		if (keyPressed==1 || canvasPressed==1)
 		{
 			if (leftButton==1)	//left
@@ -39,6 +50,19 @@ function update()
 			x=0;
 			y=screenHeight-32;
 			loadMap();
+		}
+	}
+	else if (state==="end screen")
+	{
+		if (keyCode==13)
+		{
+			x=0;
+			y=screenHeight-32
+			level=1;
+			loadMap();
+			wallTile = document.getElementById("wallTile");
+			gndTile = document.getElementById("gndTile");
+			state="title screen"
 		}
 	}
 }

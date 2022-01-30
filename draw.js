@@ -4,7 +4,18 @@ function draw()
 	ctx.fillStyle = "#FFFFFF";
 	ctx.fillRect(0,0,screenWidth,screenHeight)
 	
-	if (state==="playing")
+	if (state==="title screen")
+	{
+		ctx.drawImage(titleScreen,0,Math.floor(animCtr/8)*512,1024,512,0,0,1024,512);
+		ctx.fillStyle = "#000000"
+		if (navigator.userAgentData.mobile)
+			ctx.fillText('Touch screen to start', 785, 300)
+		else				
+			ctx.fillText('Hit Enter to start', 785, 300)
+		ctx.fillText("Game by L. Demri",785,500)
+		animCtr=(animCtr+1)%16
+	}
+	else if (state==="playing")
 	{
 		//draw ground
 		for (l=0;l<screenSizeTiles;l++)
@@ -35,7 +46,7 @@ function draw()
 		}
 		
 		//draw goal sign:
-		if (animCtr>16)
+		if ((animCtr%16)>8)
 		{
 			ctx.drawImage(goalTile,screenWidth/2-32,0)
 			ctx.drawImage(goalTile2,screenWidth-32,0)
@@ -57,24 +68,20 @@ function draw()
 		ctx.lineTo(screenWidth/2,screenHeight);
 		ctx.stroke();
 
-  //draw arrows
-  //ctx.fillText(navigator.userAgentData.mobile,100,100)
-  if (navigator.userAgentData.mobile)
-  {
-    ctx.strokeRect(3*32,14*32,64,64)
-    ctx.strokeRect(5*32,12*32,64,64)
-    ctx.strokeRect(3*32,10*32,64,64)
-    ctx.strokeRect(1*32,12*32,64,64)
-  }
+		//draw arrows
+		//ctx.fillText(navigator.userAgentData.mobile,100,100)
+		if (navigator.userAgentData.mobile)
+		{
+		ctx.strokeRect(3*32,14*32,64,64)
+		ctx.strokeRect(5*32,12*32,64,64)
+		ctx.strokeRect(3*32,10*32,64,64)
+		ctx.strokeRect(1*32,12*32,64,64)
+		}
 	}
 	else if (state==="end screen")
 	{
-		ctx.drawImage(thanksScreen,0,0)
-		if (animCtr>16)
-			ctx.drawImage(thanksScreen,0,0)
-		else
-			ctx.drawImage(thanksScreen2,0,0,)
+		ctx.drawImage(thanksScreen,0,Math.floor(animCtr/8)*512,1024,512,0,0,1024,512);
 		
-		animCtr=(animCtr+1)%33
+		animCtr=(animCtr+1)%16
 	}
 }
